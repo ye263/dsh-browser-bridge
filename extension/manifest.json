@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "DSH Browser Bridge",
+  "version": "0.1.0",
+  "description": "DSH 的浏览器操控通道：侧边栏 + 语义化 DOM 控制，不依赖视觉。",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "debugger",
+    "tabs",
+    "sidePanel",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "DSH Browser Bridge（点击打开侧边栏）"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}
