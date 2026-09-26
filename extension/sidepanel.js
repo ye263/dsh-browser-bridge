@@ -61,7 +61,7 @@ function render(s) {
   if (!tabsLoaded) { tabsLoaded = true; loadTabs(); }
 }
 
-// ── 浏览器面板 ────────────────────────────────────────────
+// ── 浏览器面板 ──────────────────────────────────────────────
 $('save').onclick = () => port.postMessage({
   type: 'config',
   value: { endpoint: $('endpoint').value.trim(), allowEval: $('allowEval').checked }
@@ -79,7 +79,7 @@ $('open').onclick = () => run('page.open', { url: $('url').value.trim() })
   .then(loadTabs)
   .catch((e) => alert(e.message));
 
-// ── 标签页清单（批量操作）─────────────────────────────────
+// ── 标签页清单（批量操作）───────────────────────────────────
 function renderTabs(list) {
   const box = $('tabs');
   box.textContent = '';
@@ -300,7 +300,7 @@ async function openFile(p, name) {
 }
 
 function esc(s) {
-  return String(s).replace(/[&<>\"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;' }[c]));
+  return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 }
 
 function inlineMd(s) {
@@ -427,7 +427,7 @@ $('fnewgo').onclick = async () => {
 };
 $('fnew').onkeydown = (ev) => { if (ev.key === 'Enter') $('fnewgo').click(); };
 
-// ── 接收「把文件推到侧窗」的推送 ──────────────────────────
+// ── 接收「把文件推到侧窗」的推送 ────────────────────────────
 let running = true;
 async function pollPanel() {
   if (!running) return;
